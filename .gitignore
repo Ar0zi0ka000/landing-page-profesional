@@ -1,0 +1,9 @@
+#Dependencia de Node
+node_modules/
+
+#Archivos de sistema
+.DS_Store
+Thumbs.db
+
+#Configuración de Vs Code
+.vscode/
