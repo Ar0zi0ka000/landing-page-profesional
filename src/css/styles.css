@@ -1,7 +1,7 @@
 /*==================== VARIABLES ====================*/
 :root {
-    --header-height: 4.5rem;
-    --first-color: #ff4d94; /* Rosa neón del video */
+    --header-height: 4rem;
+    --first-color: #ff4d94;
     --first-color-alt: #e6005c;
     --title-color: #ffffff;
     --text-color: #a9abb3;
@@ -12,7 +12,6 @@
     --title-font: 'Montserrat', sans-serif;
 }
 
-/* Variables Tema Claro */
 [data-theme="light"] {
     --title-color: #1f2833;
     --text-color: #45a29e;
@@ -45,13 +44,14 @@ a { text-decoration: none; }
     padding: 0 1.5rem;
 }
 
-.section { padding: 6rem 0 2rem; }
+/* Reducción drástica de espacios para compactar la web */
+.section { padding: 2.5rem 0 1rem; }
 
 .section__title {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-family: var(--title-font);
     color: var(--title-color);
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
     text-align: center;
 }
 
@@ -87,12 +87,11 @@ a { text-decoration: none; }
     color: var(--title-color);
     font-family: var(--title-font);
     font-weight: 700;
-    font-size: 1.2rem;
 }
 
 .nav__logo span { color: var(--first-color); }
 
-.nav__list { display: flex; gap: 2.5rem; }
+.nav__list { display: flex; gap: 2rem; }
 
 .nav__link {
     color: var(--title-color);
@@ -102,7 +101,7 @@ a { text-decoration: none; }
 
 .nav__link:hover { color: var(--first-color); }
 
-.nav__actions { display: flex; align-items: center; gap: 1.5rem; }
+.nav__actions { display: flex; align-items: center; gap: 1rem; }
 
 .change-theme {
     font-size: 1.25rem;
@@ -115,7 +114,7 @@ a { text-decoration: none; }
     display: inline-block;
     background-color: var(--first-color);
     color: #fff;
-    padding: 1rem 2.5rem;
+    padding: .8rem 2rem;
     border-radius: 3rem;
     font-weight: 600;
     border: none;
@@ -124,112 +123,114 @@ a { text-decoration: none; }
 }
 
 .button:hover {
-    background-color: var(--first-color-alt);
     transform: translateY(-3px);
     box-shadow: 0 8px 24px rgba(255, 77, 148, 0.3);
 }
 
 .button--cta {
     background: transparent;
-    border: 1px solid var(--first-color);
-    color: #fff;
-    padding: .6rem 1.2rem;
+    border: 2px solid var(--first-color);
+    color: #fff; /* Visible por defecto en modo oscuro */
+    padding: .5rem 1rem;
     border-radius: .5rem;
     cursor: pointer;
     transition: .3s;
+    font-weight: 600;
 }
 
-.button--cta:hover { background: var(--first-color); }
-
-.link--secondary {
-    color: var(--title-color);
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    font-weight: 500;
+/* Corrección de visibilidad para el botón en modo claro */
+[data-theme="light"] .button--cta {
+    color: var(--first-color);
+    border: 2px solid var(--first-color);
 }
 
-/*==================== HERO ====================*/
+.button--cta:hover { background: var(--first-color); color: #fff !important; }
+
+/*==================== HOME / HERO (Ajuste de espacios) ====================*/
 .home {
-    height: 100vh;
+    min-height: 55vh; /* Se reduce el tamaño vertical para que la siguiente sección suba */
     display: flex;
     align-items: center;
+    padding-top: calc(var(--header-height) + 1rem);
 }
 
 .home__subtitle {
     display: block;
     color: var(--first-color);
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
 }
 
 .home__title {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     font-family: var(--title-font);
     color: var(--title-color);
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
 }
 
 .home__title span { color: var(--first-color); }
 
 .home__title--main {
-    font-size: 2.2rem;
-    color: var(--title-color);
-    margin-bottom: 1.5rem;
-}
-
-.home__description {
-    max-width: 550px;
-    margin-bottom: 2.5rem;
-}
-
-.home__buttons { display: flex; align-items: center; gap: 2.5rem; }
-
-/*==================== SERVICIOS ====================*/
-.services__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-}
-
-.service__card {
-    background-color: var(--container-color);
-    padding: 3rem 2rem;
-    border-radius: 1.5rem;
-    text-align: center;
-    transition: .4s;
-}
-
-.service__card i {
-    font-size: 3rem;
-    color: var(--first-color);
-    margin-bottom: 1.5rem;
-}
-
-.service__card h3 {
+    font-size: 1.6rem;
     color: var(--title-color);
     margin-bottom: 1rem;
 }
 
-.service__card:hover { transform: translateY(-10px); }
+.home__description {
+    max-width: 500px;
+    margin-bottom: 1.5rem;
+}
 
-/*==================== CONTACTO ====================*/
-.contact__container { text-align: center; }
+.home__buttons { display: flex; align-items: center; gap: 2rem; }
+
+/*==================== SERVICIOS & CONTACT CARD ====================*/
+.services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+.service__card {
+    background-color: var(--container-color);
+    padding: 2rem 1.5rem;
+    border-radius: 1.25rem;
+    text-align: center;
+    transition: .4s;
+    border: 1px solid transparent;
+}
+
+.service__card:hover { 
+    transform: translateY(-5px); 
+    border-color: var(--first-color);
+}
+
+.service__card i {
+    font-size: 2.2rem;
+    color: var(--first-color);
+    margin-bottom: .75rem;
+}
+
+/* Contact Grid y Card Unificada */
+.contact__grid { display: flex; justify-content: center; }
+.contact__card { max-width: 500px; width: 100%; }
 
 .contact__info {
+    margin: 1.25rem 0;
     display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin: 2rem 0;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
 }
 
-.info__item { display: flex; align-items: center; gap: .5rem; }
-.info__item i { color: var(--first-color); font-size: 1.2rem; }
-
-.contact__social { display: flex; justify-content: center; gap: 1.5rem; }
-.social__link {
-    font-size: 1.5rem;
-    color: var(--title-color);
-    transition: .3s;
-}
+.info__item { display: flex; align-items: center; gap: .5rem; font-size: .9rem;}
+.contact__social { display: flex; justify-content: center; gap: 1rem; }
+.social__link { font-size: 1.4rem; color: var(--title-color); transition: .3s; }
 .social__link:hover { color: var(--first-color); }
+
+/*==================== FOOTER ====================*/
+.footer {
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: .75rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
