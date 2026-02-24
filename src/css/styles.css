@@ -1,15 +1,23 @@
 /*==================== VARIABLES ====================*/
 :root {
     --header-height: 4.5rem;
-    --first-color: #ff4d94; /* Color acento rosado/neón como el video */
+    --first-color: #ff4d94; /* Rosa neón del video */
     --first-color-alt: #e6005c;
     --title-color: #ffffff;
     --text-color: #a9abb3;
-    --body-color: #0b0c10; /* Fondo oscuro profundo */
-    --container-color: #1f2833; /* Fondo de tarjetas */
+    --body-color: #0b0c10;
+    --container-color: #1f2833;
     
     --body-font: 'Poppins', sans-serif;
     --title-font: 'Montserrat', sans-serif;
+}
+
+/* Variables Tema Claro */
+[data-theme="light"] {
+    --title-color: #1f2833;
+    --text-color: #45a29e;
+    --body-color: #f4f7f6;
+    --container-color: #ffffff;
 }
 
 /*==================== BASE ====================*/
@@ -19,16 +27,17 @@
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     background-color: var(--body-color);
     color: var(--text-color);
     font-family: var(--body-font);
-    line-height: 1.6;
+    transition: .4s;
 }
+
+ul { list-style: none; }
+a { text-decoration: none; }
 
 .container {
     max-width: 1100px;
@@ -36,18 +45,35 @@ body {
     padding: 0 1.5rem;
 }
 
+.section { padding: 6rem 0 2rem; }
+
+.section__title {
+    font-size: 2rem;
+    font-family: var(--title-font);
+    color: var(--title-color);
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
 /*==================== HEADER ====================*/
 .header {
     width: 100%;
     height: var(--header-height);
-    display: flex;
-    align-items: center;
+    background-color: transparent;
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(11, 12, 16, 0.8);
-    backdrop-filter: blur(10px); /* Efecto cristal */
     z-index: 100;
+    display: flex;
+    align-items: center;
+    transition: .4s;
+}
+
+.blur-header {
+    background-color: rgba(11, 12, 16, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav {
@@ -61,58 +87,79 @@ body {
     color: var(--title-color);
     font-family: var(--title-font);
     font-weight: 700;
+    font-size: 1.2rem;
 }
 
 .nav__logo span { color: var(--first-color); }
 
-.nav__list {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-}
+.nav__list { display: flex; gap: 2.5rem; }
 
 .nav__link {
     color: var(--title-color);
-    transition: 0.3s;
+    font-weight: 500;
+    transition: .3s;
 }
 
 .nav__link:hover { color: var(--first-color); }
 
+.nav__actions { display: flex; align-items: center; gap: 1.5rem; }
+
+.change-theme {
+    font-size: 1.25rem;
+    color: var(--title-color);
+    cursor: pointer;
+}
+
 /*==================== BOTONES ====================*/
 .button {
+    display: inline-block;
     background-color: var(--first-color);
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    border: none;
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 3rem;
     font-weight: 600;
+    border: none;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
-.button:hover { background-color: var(--first-color-alt); transform: translateY(-3px); }
+.button:hover {
+    background-color: var(--first-color-alt);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(255, 77, 148, 0.3);
+}
 
 .button--cta {
-    border: 1px solid var(--first-color);
     background: transparent;
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border-radius: 8px;
+    border: 1px solid var(--first-color);
+    color: #fff;
+    padding: .6rem 1.2rem;
+    border-radius: .5rem;
     cursor: pointer;
+    transition: .3s;
 }
 
-/*==================== HOME / HERO ====================*/
+.button--cta:hover { background: var(--first-color); }
+
+.link--secondary {
+    color: var(--title-color);
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-weight: 500;
+}
+
+/*==================== HERO ====================*/
 .home {
     height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: var(--header-height);
 }
 
 .home__subtitle {
+    display: block;
     color: var(--first-color);
     font-weight: 600;
-    display: block;
     margin-bottom: 1rem;
 }
 
@@ -126,41 +173,63 @@ body {
 .home__title span { color: var(--first-color); }
 
 .home__title--main {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
     color: var(--title-color);
+    margin-bottom: 1.5rem;
 }
 
 .home__description {
-    max-width: 600px;
-    margin-bottom: 2rem;
+    max-width: 550px;
+    margin-bottom: 2.5rem;
 }
 
-.home__buttons {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
+.home__buttons { display: flex; align-items: center; gap: 2.5rem; }
 
-/*==================== CARDS SERVICIOS ====================*/
+/*==================== SERVICIOS ====================*/
 .services__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2rem;
-    margin-top: 3rem;
 }
 
 .service__card {
     background-color: var(--container-color);
-    padding: 2.5rem;
+    padding: 3rem 2rem;
     border-radius: 1.5rem;
-    transition: 0.3s;
+    text-align: center;
+    transition: .4s;
 }
 
 .service__card i {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--first-color);
+    margin-bottom: 1.5rem;
+}
+
+.service__card h3 {
+    color: var(--title-color);
     margin-bottom: 1rem;
 }
 
 .service__card:hover { transform: translateY(-10px); }
+
+/*==================== CONTACTO ====================*/
+.contact__container { text-align: center; }
+
+.contact__info {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 2rem 0;
+}
+
+.info__item { display: flex; align-items: center; gap: .5rem; }
+.info__item i { color: var(--first-color); font-size: 1.2rem; }
+
+.contact__social { display: flex; justify-content: center; gap: 1.5rem; }
+.social__link {
+    font-size: 1.5rem;
+    color: var(--title-color);
+    transition: .3s;
+}
+.social__link:hover { color: var(--first-color); }

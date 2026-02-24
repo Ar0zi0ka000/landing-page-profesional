@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingeniero en Informática</title>
+    <title>Maximiliano | Ingeniero en Informática</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
@@ -12,11 +12,11 @@
 </head>
 <body>
 
-    <header class="header">
+    <header class="header" id="header">
         <nav class="nav container">
-            <a href="#" class="nav__logo">Maximiliano<span> Navarrete</span></a>
+            <a href="#" class="nav__logo">Maximiliano<span>Navarrete</span></a>
 
-            <div class="nav__menu">
+            <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li><a href="#home" class="nav__link">Inicio</a></li>
                     <li><a href="#services" class="nav__link">Servicios</a></li>
@@ -24,54 +24,76 @@
                 </ul>
             </div>
 
-            <button class="button--cta">Cotiza tu servicio</button>
+            <div class="nav__actions">
+                <i class='bx bx-moon change-theme' id="theme-button"></i>
+                <button class="button--cta">Cotiza tu web</button>
+            </div>
         </nav>
     </header>
 
-    <main>
+    <main class="main">
         <section class="home container" id="home">
             <div class="home__content">
                 <span class="home__subtitle">💻 Desarrollador web</span>
                 <h1 class="home__title">Hola, soy <span>Maximiliano</span></h1>
                 <h2 class="home__title--main">Creo sitios a medida con resultados concretos.</h2>
                 <p class="home__description">
-                    Me enfoco en rendimiento, arquitectura técnica y experiencias claras que ayudan a marcas a comunicar mejor.
+                    Me enfoco en rendimiento, arquitectura técnica y experiencias claras que ayudan a las marcas a comunicar mejor.
                 </p>
                 <div class="home__buttons">
                     <button class="button">Hablemos ahora</button>
-                    <a href="#services" class="link--secondary">Ver trabajos <i class='bx bx-right-arrow-alt'></i></a>
+                    <a href="#services" class="link--secondary">Ver servicios <i class='bx bx-right-arrow-alt'></i></a>
                 </div>
             </div>
         </section>
 
-        <section class="services container" id="services">
+        <section class="services section container" id="services">
             <h2 class="section__title">¿Qué obtienes?</h2>
             <div class="services__grid">
                 <div class="service__card">
                     <i class='bx bx-layout'></i>
-                    <h3>Landing page que convierte</h3>
-                    <p>Estructura clara, llamada a la acción y pruebas sociales.</p>
+                    <h3>Landing page</h3>
+                    <p>Estructura clara, enfocada a la conversión y experiencia de usuario.</p>
                 </div>
                 <div class="service__card">
                     <i class='bx bx-rocket'></i>
                     <h3>SEO & Performance</h3>
-                    <p>Buenas prácticas técnicas y contenido optimizado.</p>
+                    <p>Optimización de velocidad y buenas prácticas para motores de búsqueda.</p>
+                </div>
+                <div class="service__card">
+                    <i class='bx bx-code-alt'></i>
+                    <h3>Administrable</h3>
+                    <p>Código limpio y fácil de actualizar para futuros cambios.</p>
+                </div>
+                <div class="service__card">
+                    <i class='bx bx-support'></i>
+                    <h3>Soporte</h3>
+                    <p>Acompañamiento post-entrega y mantenimiento técnico.</p>
                 </div>
             </div>
         </section>
 
-        <section class="contact container" id="contact">
-            <div class="contact__box">
-                <h2>Conversemos</h2>
-                <p>Aquí tienes mis datos de contacto y redes. ¡Escríbeme cuando quieras!</p>
-                <ul class="contact__info">
-                    <li><i class='bx bx-envelope'></i> tu-correo@gmail.com</li>
-                    <li><i class='bx bx-map'></i> Colina, RM, Chile</li>
-                </ul>
-                <div class="social__media">
-                    <a href="#"><i class='bx bxl-whatsapp'></i></a>
-                    <a href="#"><i class='bx bxl-instagram'></i></a>
-                    <a href="#"><i class='bx bxl-github'></i></a>
+        <section class="contact section container" id="contact">
+            <div class="contact__container">
+                <h2 class="section__title">Conversemos</h2>
+                <p class="contact__description">Aquí tienes mis datos de contacto. ¡Escríbeme cuando quieras!</p>
+                
+                <div class="contact__info">
+                    <div class="info__item">
+                        <i class='bx bx-envelope'></i>
+                        <span>tu-correo@gmail.com</span>
+                    </div>
+                    <div class="info__item">
+                        <i class='bx bx-map'></i>
+                        <span>Colina, RM, Chile</span>
+                    </div>
+                </div>
+
+                <div class="contact__social">
+                    <a href="#" class="social__link"><i class='bx bxl-whatsapp'></i></a>
+                    <a href="#" class="social__link"><i class='bx bxl-instagram'></i></a>
+                    <a href="#" class="social__link"><i class='bx bxl-github'></i></a>
+                    <a href="#" class="social__link"><i class='bx bxl-twitter'></i></a>
                 </div>
             </div>
         </section>
