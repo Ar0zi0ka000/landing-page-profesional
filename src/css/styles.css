@@ -1,17 +1,19 @@
 /*==================== VARIABLES ====================*/
+/* Definición de la paleta de colores y tipografía técnica */
 :root {
     --header-height: 4rem;
-    --first-color: #ff4d94;
+    --first-color: #ff4d94; /* Rosa neón de referencia */
     --first-color-alt: #e6005c;
     --title-color: #ffffff;
     --text-color: #a9abb3;
-    --body-color: #0b0c10;
+    --body-color: #0b0c10; /* Fondo oscuro profundo */
     --container-color: #1f2833;
     
     --body-font: 'Poppins', sans-serif;
     --title-font: 'Montserrat', sans-serif;
 }
 
+/* Variables para el Tema Claro */
 [data-theme="light"] {
     --title-color: #1f2833;
     --text-color: #45a29e;
@@ -26,13 +28,15 @@
     padding: 0;
 }
 
-html { scroll-behavior: smooth; }
+html { 
+    scroll-behavior: smooth; /* Permite el desplazamiento suave al usar anclas */
+}
 
 body {
     background-color: var(--body-color);
     color: var(--text-color);
     font-family: var(--body-font);
-    transition: .4s;
+    transition: .4s; /* Transición global para el cambio de tema */
 }
 
 ul { list-style: none; }
@@ -44,7 +48,7 @@ a { text-decoration: none; }
     padding: 0 1.5rem;
 }
 
-/* Reducción drástica de espacios para compactar la web */
+/* Ajuste de espacios verticales para compactar la visualización */
 .section { padding: 2.5rem 0 1rem; }
 
 .section__title {
@@ -55,7 +59,7 @@ a { text-decoration: none; }
     text-align: center;
 }
 
-/*==================== HEADER ====================*/
+/*==================== HEADER & NAV ====================*/
 .header {
     width: 100%;
     height: var(--header-height);
@@ -69,6 +73,7 @@ a { text-decoration: none; }
     transition: .4s;
 }
 
+/* Efecto Glassmorphism al hacer scroll */
 .blur-header {
     background-color: rgba(11, 12, 16, 0.8);
     backdrop-filter: blur(15px);
@@ -101,13 +106,52 @@ a { text-decoration: none; }
 
 .nav__link:hover { color: var(--first-color); }
 
-.nav__actions { display: flex; align-items: center; gap: 1rem; }
+.nav__actions { display: flex; align-items: center; gap: 1.5rem; }
 
-.change-theme {
-    font-size: 1.25rem;
-    color: var(--title-color);
-    cursor: pointer;
+/*==================== TOGGLE DE TEMA (SWITCH DESLIZANTE) ====================*/
+.theme-switch { 
+    display: inline-block; 
+    height: 28px; 
+    position: relative; 
+    width: 50px; 
 }
+
+.theme-switch input { display: none; }
+
+.slider { 
+    background-color: #333; 
+    bottom: 0; 
+    cursor: pointer; 
+    left: 0; 
+    position: absolute; 
+    right: 0; 
+    top: 0; 
+    transition: .4s; 
+    border-radius: 34px; 
+    border: 1px solid var(--first-color); 
+}
+
+.circle { 
+    background-color: #fff; 
+    bottom: 3px; 
+    height: 20px; 
+    left: 3px; 
+    position: absolute; 
+    transition: .4s; 
+    width: 20px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+/* Lógica de movimiento del switch */
+input:checked + .slider { background-color: var(--first-color); }
+input:checked + .slider .circle { transform: translateX(22px); }
+
+/* Iconos dentro del círculo (Luna/Sol) */
+.circle::before { content: '🌙'; font-size: 10px; }
+input:checked + .slider .circle::before { content: '☀️'; }
 
 /*==================== BOTONES ====================*/
 .button {
@@ -130,7 +174,7 @@ a { text-decoration: none; }
 .button--cta {
     background: transparent;
     border: 2px solid var(--first-color);
-    color: #fff; /* Visible por defecto en modo oscuro */
+    color: #fff;
     padding: .5rem 1rem;
     border-radius: .5rem;
     cursor: pointer;
@@ -138,17 +182,20 @@ a { text-decoration: none; }
     font-weight: 600;
 }
 
-/* Corrección de visibilidad para el botón en modo claro */
+/* Mejora de visibilidad en Modo Claro */
 [data-theme="light"] .button--cta {
     color: var(--first-color);
     border: 2px solid var(--first-color);
 }
 
-.button--cta:hover { background: var(--first-color); color: #fff !important; }
+.button--cta:hover { 
+    background: var(--first-color); 
+    color: #fff !important; 
+}
 
-/*==================== HOME / HERO (Ajuste de espacios) ====================*/
+/*==================== HOME / HERO ====================*/
 .home {
-    min-height: 55vh; /* Se reduce el tamaño vertical para que la siguiente sección suba */
+    min-height: 55vh; 
     display: flex;
     align-items: center;
     padding-top: calc(var(--header-height) + 1rem);
@@ -183,6 +230,14 @@ a { text-decoration: none; }
 
 .home__buttons { display: flex; align-items: center; gap: 2rem; }
 
+.link--secondary {
+    color: var(--title-color);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
 /*==================== SERVICIOS & CONTACT CARD ====================*/
 .services__grid {
     display: grid;
@@ -210,7 +265,7 @@ a { text-decoration: none; }
     margin-bottom: .75rem;
 }
 
-/* Contact Grid y Card Unificada */
+/* Diseño unificado para la tarjeta de contacto */
 .contact__grid { display: flex; justify-content: center; }
 .contact__card { max-width: 500px; width: 100%; }
 
@@ -223,14 +278,38 @@ a { text-decoration: none; }
 }
 
 .info__item { display: flex; align-items: center; gap: .5rem; font-size: .9rem;}
-.contact__social { display: flex; justify-content: center; gap: 1rem; }
-.social__link { font-size: 1.4rem; color: var(--title-color); transition: .3s; }
-.social__link:hover { color: var(--first-color); }
+.contact__social { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1rem; }
+
+.social__link { 
+    font-size: 1.5rem; 
+    color: var(--title-color); 
+    transition: .3s; 
+}
+
+.social__link:hover { 
+    color: var(--first-color); 
+    transform: scale(1.2); 
+}
 
 /*==================== FOOTER ====================*/
 .footer {
-    padding: 1.5rem 0;
-    text-align: center;
-    font-size: .75rem;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
     border-top: 1px solid rgba(255,255,255,0.05);
 }
+
+.footer__copy { font-size: .8rem; }
+
+.footer__scroll {
+    color: var(--first-color);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    transition: .3s;
+}
+
+.footer__scroll:hover { text-decoration: underline; }

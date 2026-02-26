@@ -6,13 +6,10 @@
     <title>Ingeniero en Informática</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="src/css/styles.css">
 </head>
-<body>
-
-    <header class="header" id="header">
+<body id="top"> <header class="header" id="header">
         <nav class="nav container">
             <a href="#" class="nav__logo">Maximiliano<span> Navarrete</span></a>
 
@@ -25,7 +22,14 @@
             </div>
 
             <div class="nav__actions">
-                <i class='bx bx-moon change-theme' id="theme-button"></i>
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider">
+                            <div class="circle"></div>
+                        </div>
+                    </label>
+                </div>
                 <button class="button--cta">Cotiza tu servicio</button>
             </div>
         </nav>
@@ -41,7 +45,7 @@
                     Me enfoco en rendimiento, arquitectura técnica y experiencias claras que ayudan a las marcas a comunicar mejor.
                 </p>
                 <div class="home__buttons">
-                    <button class="button">Hablemos ahora</button>
+                    <a href="mailto:Maximiliano000.andres@gmail.com?subject=Consulta%20Proyecto%20Web" class="button">Hablemos ahora</a>
                     <a href="#services" class="link--secondary">Ver servicios <i class='bx bx-right-arrow-alt'></i></a>
                 </div>
             </div>
@@ -78,27 +82,17 @@
             <div class="contact__grid">
                 <div class="service__card contact__card">
                     <p class="contact__description">Aquí tienes mis datos de contacto. ¡Escríbeme cuando quieras!</p>
-                    
                     <div class="contact__info">
-                        <div class="info__item">
-                            <i class='bx bx-envelope'></i>
-                            <span>Maximiliano.000.andres@gmail.com</span>
-                        </div>
-                        <div class="info__item">
-                            <i class='bx bx-map'></i>
-                            <span>Colina, RM, Chile</span>
-                        </div>
-                        <div class="info__item">
-                            <i class='bx bx-calendar'></i>
-                            <span>Disponibilidad: Lun-Vie</span>
-                        </div>
+                        <div class="info__item"><i class='bx bx-envelope'></i> <span>Maximiliano000.andres@gmail.com</span></div>
+                        <div class="info__item"><i class='bx bx-map'></i> <span>Colina, RM, Chile</span></div>
+                        <div class="info__item"><i class='bx bx-calendar'></i> <span>Disponibilidad: Lun-Vie</span></div>
                     </div>
 
                     <div class="contact__social">
-                        <a href="#" class="social__link"><i class='bx bxl-whatsapp'></i></a>
-                        <a href="#" class="social__link"><i class='bx bxl-instagram'></i></a>
-                        <a href="#" class="social__link"><i class='bx bxl-github'></i></a>
-                        <a href="#" class="social__link"><i class='bx bxl-twitter'></i></a>
+                        <a href="https://wa.me/56932505243" target="_blank" rel="noopener" class="social__link"><i class='bx bxl-whatsapp'></i></a>
+                        <a href="https://instagram.com/ar0zi0ka.000" target="_blank" rel="noopener" class="social__link"><i class='bx bxl-instagram'></i></a>
+                        <a href="https://github.com/Ar0zi0ka000" target="_blank" rel="noopener" class="social__link"><i class='bx bxl-github'></i></a>
+                        <a href="https://x.com/AR0ZI0KA000" target="_blank" rel="noopener" class="social__link"><i class='bx bxl-twitter'></i></a>
                     </div>
                 </div>
             </div>
@@ -106,7 +100,10 @@
     </main>
 
     <footer class="footer container">
-        <span class="footer__copy">&#169; 2026 Maximiliano Navarrete - Contácteme!</span>
+        <span class="footer__copy">&#169; 2026 Maximiliano Navarrete</span>
+        <a href="#top" class="footer__scroll">
+            <i class='bx bx-up-arrow-alt'></i> Volver arriba
+        </a>
     </footer>
 
     <script src="src/js/main.js"></script>
